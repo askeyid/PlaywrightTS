@@ -22,6 +22,7 @@ test('parametrized methods', async({page}) => {
     const randomPassword = faker.internet.password()
 
     await pm.navigateTo().formLayoutsPage()
+    await pm.navigateTo().datepickerMenuItem.screenshot({path: 'screenshots/datepickerMenuItem.png'})
     await page.screenshot({path: 'screenshots/formLayoutsPage.png'})
     await pm.onFormLayoutsPage().submitUsingGridFormWithCredenntialsAndSelectOption(randomEmail, randomPassword, 'Option 2')
 })
