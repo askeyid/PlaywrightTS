@@ -4,6 +4,7 @@
 /out-tsc
 /screenshots
 /playwright-report
+.env
 
 # dependencies
 /node_modules

@@ -1,16 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
+import type { TestOptions } from './test-options';
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
+require('dotenv').config();
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
-  timeout: 17000, // default: 30000
+export default defineConfig<TestOptions>({
+  timeout: 20000, // default: 30000
   // globalTimeout: 15000, // no default
   // expect: {
   //   timeout: 2000
@@ -34,30 +35,34 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    baseURL: 'http://localhost:4200',
+    baseURL: 'http://localhost:4200/',
+    globalsQaUrl: 'http://globalsqa.com/demo-site/draganddrop/',
+    //uiTestingPlayground: 'http://uitestingplayground.com/ajax' // ___ commented to use env variable instead
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'dev',
       use: { 
         ...devices['Desktop Chrome'],
+        baseURL: 'http://localhost:4201/',
       },
+    },    
+
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'], },
     },
 
     {
       name: 'firefox',
-      use: { 
-        ...devices['Desktop Firefox'],
-       },
+      use: { ...devices['Desktop Firefox'], },
     },
 
     {
       name: 'webkit',
-      use: { 
-        ...devices['Desktop Safari']
-       },
+      use: { ...devices['Desktop Safari'] },
     },
 
     /* Test against mobile viewports. */

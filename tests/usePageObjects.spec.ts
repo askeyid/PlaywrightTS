@@ -43,7 +43,6 @@ test('datepicker', async({page}) => {
 })
 
 test('datepicker with range', async({page}) => {
-    // test.describe.configure({ retries: 1 })
     const pm = new PageManager(page)
 
     await pm.navigateTo().datepickerPage()
