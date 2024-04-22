@@ -11,14 +11,14 @@
     "all": "npx playwright test --project chromium --project firefox"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.4.1",
-    "@playwright/test": "^1.43.0",
-    "@types/leaflet": "1.2.3",
-    "@types/node": "^12.12.70",
-    "conventional-changelog-cli": "^2.2.2",
-    "dotenv": "^16.4.5",
-    "npm-run-all": "4.0.2",
-    "ts-node": "3.2.2",
-    "typescript": "~4.6.4"
+    "@faker-js/faker": "latest",
+    "@playwright/test": "latest",
+    "@types/leaflet": "latest",
+    "@types/node": "latest",
+    "conventional-changelog-cli": "latest",
+    "dotenv": "latest",
+    "npm-run-all": "latest",
+    "ts-node": "latest",
+    "typescript": "latest"
   }
 }
