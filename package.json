@@ -12,7 +12,7 @@
     "po-chrome": "npx playwright test usePageObjects.spec.ts --project=chromium",
     "all-chrome": "npx playwright test --project=chromium",
     "all-firefox": "npx playwright test --project=firefox",
-    "all": "npm run all-chrome && npm run all-firefox"
+    "all": "npx playwright test --project chromium --project firefox"
   },
   "dependencies": {
     "@angular/animations": "^14.2.12",

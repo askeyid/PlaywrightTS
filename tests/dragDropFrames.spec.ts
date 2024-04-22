@@ -1,7 +1,7 @@
 import { expect } from "@playwright/test"
 import { test } from '../test-options'
 
-test('Drag&DropiFrames', async({page, globalsQaUrl}) => {
+test('Drag&DropiFrames', async({page, globalsQaURL: globalsQaUrl}) => {
     await page.goto(globalsQaUrl, { timeout: 30000})
 
     const frame = page.frameLocator('[rel-title="Photo Manager"] iframe')

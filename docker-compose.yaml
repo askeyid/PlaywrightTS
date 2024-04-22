@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  app:
+    image: pw-web-server
+    build:
+      context: .
+      dockerfile: ./Dockerfile-app
+
+  tests:
+    image: pw-tests
+    build:
+      context: .
+      dockerfile: ./Dockerfile-tests
+    command: npm run all-chrome
+    volumes: 
+      - C:/Users/Admin/source/pw-practice-app/playwright-report:/app/playwright-report
+      - C:/Users/Admin/source/pw-practice-app/playwright-results/:/app/playwright-results

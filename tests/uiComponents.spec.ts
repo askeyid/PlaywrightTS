@@ -2,7 +2,6 @@ import { expect, test } from '@playwright/test'
 
 test.beforeEach(async({page}) => {
     await page.goto('/')
-
 })
 
 test.describe('Form Layouts page', () => {
@@ -158,7 +157,6 @@ test('Dialogs', async({page}) => {
     await page.getByRole('table').locator('tr', { hasText: 'mdo@gmail.com'}).locator('.nb-trash').click()
 
     await expect(page.locator('tbody tr').first()).not.toContainText('mdo@gmail.com')
-
 })
 
 test('Tables', async({page}) => {

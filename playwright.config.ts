@@ -5,14 +5,17 @@ require('dotenv').config();
 
 export default defineConfig<TestOptions>({
   timeout: 20000,
-  globalTimeout: 120000,
+  // globalTimeout: 120000,
   expect: { timeout: 2000 },
 
+  testDir: 'tests',
+  fullyParallel: true,
   retries: 1,
   reporter: 'html',
+
   use: {
     baseURL: 'http://localhost:4200/',
-    globalsQaUrl: 'http://globalsqa.com/demo-site/draganddrop/',
+    globalsQaURL: 'http://globalsqa.com/demo-site/draganddrop/',
     //uiTestingPlayground: 'http://uitestingplayground.com/ajax' // ___ commented to use env variable instead
     trace: 'on-first-retry',
     actionTimeout: 20000,
@@ -28,7 +31,7 @@ export default defineConfig<TestOptions>({
       name: 'dev',
       use: { 
         ...devices['Desktop Chrome'],
-        baseURL: 'http://localhost:4201/',
+        baseURL: 'http://localhost:4200/',
       },
     },    
 
@@ -47,7 +50,20 @@ export default defineConfig<TestOptions>({
       use: {
         viewport: { width: 1920, height: 1080 }
       }
-    }
+    },
+
+    {
+      name: 'mobile',
+      testMatch: 'testMobile.spec.ts',
+      use: {
+        ...devices['Galaxy S9+']
+      }
+    },
   ],
 
+  // webServer: {
+  //   command: 'npm run start',
+  //   url: 'http://localhost:4200/',
+  //   timeout: 3 * 60 * 1000,
+  // }
 });
